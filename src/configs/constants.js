@@ -1,0 +1,17 @@
+// constants
+export default {
+  OBJECT_TYPES: [
+    'CIRCLE',
+    'SQUARE',
+    'TRIANGLE'
+  ],
+  MIN_WEIGHT: 1,
+  MAX_WEIGHT: 10,
+  SQUARE_PX_BY_KG: 10,
+  OBJECT_FALLING_SPEED: 10, // pixel
+  OBJECT_FALLING_PERIOD: 200, // ms
+  SWING_LENGTH: 800, // px
+  SWING_LENGTH_METER: 10,
+  MAX_ANGEL: 30,
+  MIN_ANGLE: -30
+}

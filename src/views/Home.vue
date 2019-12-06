@@ -1,18 +1,41 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <TheHeader/>
+    <Seesaw/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapActions } from 'vuex'
+import Seesaw from '@/components/TheSeesaw'
+import TheHeader from '@/components/TheHeader'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    Seesaw,
+    TheHeader
+  },
+  methods: {
+    ...mapActions([
+      'moveObjectByArrowLeft',
+      'moveObjectByArrowRight'
+    ]),
+    onWindowKeydown (event) {
+      const key = event.key
+
+      if (key === 'ArrowLeft') {
+        this.moveObjectByArrowLeft()
+      } else if (key === 'ArrowRight') {
+        this.moveObjectByArrowRight()
+      }
+    }
+  },
+  created () {
+    window.addEventListener('keydown', this.onWindowKeydown)
+  },
+  destroyed () {
+    window.removeEventListener('keydown', this.onWindowKeydown)
   }
 }
 </script>
